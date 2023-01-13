@@ -6,7 +6,7 @@
 
 # Variables 
 * Definition with @ and usage with {{...}}
-@url = https://dae5-raindrops-ws2022-test-1-production.up.railway.app/
+@url = https://raindrops-ws2022-production-63fb.up.railway.app/
 
 # Info - Controller
 GET {{url}}/info HTTP/1.1

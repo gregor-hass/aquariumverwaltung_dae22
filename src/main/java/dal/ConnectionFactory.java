@@ -20,9 +20,9 @@ public class ConnectionFactory {
   // https://jdbc.postgresql.org/documentation/head/connect.html
   
   @Value("${spring.datasource.url}")
-  private static final String localPostgresDbUrl = "jdbc:postgresql://<url>/railway";
-  private static final String USER = "<user>";
-  private static final String PASS = "<password>";
+  private static final String localPostgresDbUrl = "jdbc:postgresql://containers-us-west-76.railway.app:5463/railway";
+  private static final String USER = "postgres";
+  private static final String PASS = "i76sYst6KBjb3kQcWvBn";
   private static final String SCHEMA = "hr";
   private static final String LOGLEVEL = "DEBUG"; // OFF, DEBUG, TRACE
 
