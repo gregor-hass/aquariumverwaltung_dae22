@@ -26,7 +26,7 @@ public class HumidityDao extends DaoBase implements Dao<Humidity> {
   }
 
   public boolean deleteV1(String id) {
-    String deleteHumidityQuery;
+    String deleteHumidityQuery;                                // 1 OR 'x' = 'x'
     deleteHumidityQuery = "DELETE FROM humidity WHERE id = " + id + ";";
     int affectedRows = 0;
     try {

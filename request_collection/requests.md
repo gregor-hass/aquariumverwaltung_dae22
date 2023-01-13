@@ -17,7 +17,7 @@ POST {{url}}/sensor
 content-type: application/json
 
 {
-    "friendly_name": "Sensor #1337 (VS Code, V5.0.0.1)",
+    "friendly_name": "Sensor #2 (VS Code, V5.0.0.2)",
     "employee_id": "100"
 }
 
@@ -36,7 +36,7 @@ DELETE {{url}}/humidity/1 OR 'x'='x' HTTP/1.1
 GET {{url}}/sensor/2/humidity HTTP/1.1 
 
 ## Post Humidity for Sensor
-POST {{url}}/sensor/2/humidity/3.33
+POST {{url}}/sensor/2/humidity/1.18
 
 ## Get All Humidities
 GET {{url}}/humidity HTTP/1.1

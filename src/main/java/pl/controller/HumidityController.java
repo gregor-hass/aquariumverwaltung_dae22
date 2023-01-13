@@ -51,7 +51,7 @@ public class HumidityController {
   @RequestMapping(value = "/humidity/{id}", method = { RequestMethod.DELETE })
   @ResponseBody
   public ResponseEntity<String> deleteHumidityById(@PathVariable("id") String id) {
-    boolean deleted = new HumidityLogic().deleteSqlInj(id);
+    boolean deleted = new HumidityLogic().delete(id);
     if (deleted) {
       return new ResponseEntity<String>("Humidity with id " + id.toString() + " successfully deleted!", HttpStatus.OK);
     } else {
