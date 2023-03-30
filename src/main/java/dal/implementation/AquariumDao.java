@@ -85,11 +85,21 @@ public Optional<List<Aquarium>> getAll() {
     try {
       stmt = conn.createStatement();
       // 3. execute the query
-      ResultSet result = stmt.executeQuery("SELECT * FROM aquariums");
-      aqs.add(new Aquarium(10, 20, "Executed Query"));
+      ResultSet result = stmt.executeQuery("SELECT * FROM aquariums;");
+      aqs.add(new Aquarium(result.getType(), 20, "Executed Query"));
       // 4. result set will be retrieved
       // as long as there is a next result, we create employee objects and add them to
       // the list (to be returned)
+
+      int size =0;
+        if (result != null) 
+        {
+            result.last();    // moves cursor to the last row
+            size = result.getRow(); // get row id 
+        }
+
+        aqs.add(new Aquarium(result.getType(), size, "ResultSize"));
+        result.beforeFirst();
       while (result.next()) {
         aqs.add(new Aquarium(10, 20, "result.next was true"));
         Aquarium aq = extractAquariumFromResultSet(result);
