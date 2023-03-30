@@ -15,6 +15,16 @@ GET {{url}}/info HTTP/1.1
 ## Get All Aquariums
 GET {{url}}/aquarium HTTP/1.1 
 
+WRONG SCHEMA
+null
+exception
+Morg.postgresql.util.PSQLException: ERROR: relation "aquariums" does not exist
+
+Rigth database and SCHEMA
+av
+true
+1
+
 # Sensor Controller
 ## Add new sensor
 POST {{url}}/sensor 
