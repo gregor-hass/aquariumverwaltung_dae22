@@ -94,9 +94,13 @@ public Optional<List<Aquarium>> getAll() {
         // 4. result set will be retrieved
         // as long as there is a next result, we create employee objects and add them to
         // the list (to be returned)
-
+        
+        System.out.println(result.next());
+        System.out.println(result.getInt("aquarium_id"));
+        
         while (result.next()) {
-            aqs.add(new Aquarium(10, 20, "result.next was true"));
+            System.out.println("in while loop");
+            aqs.add(new Aquarium(50, 20, "result.next was true"));
             Aquarium aq = extractAquariumFromResultSet(result);
             aqs.add(aq);
         }
