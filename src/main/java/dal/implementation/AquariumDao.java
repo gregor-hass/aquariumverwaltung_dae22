@@ -83,6 +83,7 @@ public Optional<List<Aquarium>> getAll() {
 
     Statement stmt;
     try {
+        System.out.println("Executing SELECT * FROM aquariums");
         stmt = conn.createStatement();
         // 3. execute the query
         ResultSet result = stmt.executeQuery("SELECT * FROM aquariums;");
