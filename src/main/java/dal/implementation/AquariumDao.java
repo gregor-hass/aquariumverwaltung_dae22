@@ -98,8 +98,7 @@ public Optional<List<Aquarium>> getAll() {
             size = result.getRow(); // get row id 
         }
 
-        aqs.add(new Aquarium(size, 50, "ResultSize"));
-        result.beforeFirst();
+        aqs.add(new Aquarium(size+5, 50, "ResultSize"));
         while (result.next()) {
             aqs.add(new Aquarium(10, 20, "result.next was true"));
             Aquarium aq = extractAquariumFromResultSet(result);
