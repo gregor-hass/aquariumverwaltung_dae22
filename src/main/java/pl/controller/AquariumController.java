@@ -36,9 +36,9 @@ public class AquariumController {
    * @param rh       the relative humidity value
    * @return a success / failure message
    */
-  @RequestMapping(value = "sensor/aquarium/{vol}/{room}", method = { RequestMethod.POST, RequestMethod.PUT })
+  @RequestMapping(value = "sensor/aquarium/{room}/{vol}", method = { RequestMethod.POST, RequestMethod.PUT })
   @ResponseBody
-  public ResponseEntity<String> addAquarium(@PathVariable("vol") Double volume, @PathVariable("room") String roomname) {
+  public ResponseEntity<String> addAquarium( @PathVariable("room") String roomname, @PathVariable("vol") Double volume) {
     Aquarium aq = new Aquarium(0,volume,roomname);
 
     boolean saved = new AquariumLogic().save(aq);

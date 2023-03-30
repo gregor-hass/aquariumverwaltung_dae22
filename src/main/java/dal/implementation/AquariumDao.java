@@ -50,11 +50,11 @@ public class AquariumDao extends DaoBase implements Dao<Aquarium>{
     try {
       insertStatement = conn
           .prepareStatement("INSERT INTO aquariums (aquarium_vol, aquarium_room) "
-              + "VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS
+              + "VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS
           // see https://www.arundhaj.com/blog/getGeneratedKeys-with-postgresql.html
           );
-      insertStatement.setDouble(2, aq.getVolume());
-      insertStatement.setString(3, aq.getRoom());
+      insertStatement.setDouble(1, aq.getVolume());
+      insertStatement.setString(2, aq.getRoom());
 
       // return 1 or 0
       i = insertStatement.executeUpdate();
