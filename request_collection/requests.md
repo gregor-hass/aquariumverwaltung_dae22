@@ -30,7 +30,10 @@ GET {{url}}/sensor HTTP/1.1
 GET {{url}}/humidity/1 HTTP/1.1
 
 ## Delete Humidity by ID
+SQL-Injektion!!!! Die "id" wird als string übergeben und ausgeführt
+
 DELETE {{url}}/humidity/1 OR 'x'='x' HTTP/1.1
+DELETE {{url}}/humidity/1 HTTP/1.1
 
 # Get Humidity values for a sensor by the sensor ID
 GET {{url}}/sensor/2/humidity HTTP/1.1 

@@ -30,7 +30,7 @@ public class InfoController {
   @RequestMapping(value = "/info", method = RequestMethod.GET)
   @ResponseBody
   public ResponseEntity<String> info() {
-    String version = "Raindrops V5.0.0.2-SNAPSHOT";
+    String version = "Raindrops V5.0.0.3-SNAPSHOT";
     return new ResponseEntity<String>(version + " - DAE5 - WS 2022 (VS Code Version)"
         + " No method selected! Just found the (non-existent) page: '" + context.getRequestURI() + "'!", HttpStatus.OK);
   }
