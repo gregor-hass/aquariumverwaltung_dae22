@@ -85,6 +85,8 @@ public Optional<List<Aquarium>> getAll() {
     try {
         stmt = conn.prepareStatement("SELECT * FROM aquariums");
         System.out.println(stmt.toString());
+        System.out.println(conn.getSchema());
+        
 
         // 3. execute the query
         ResultSet result = stmt.executeQuery();
@@ -102,7 +104,7 @@ public Optional<List<Aquarium>> getAll() {
         System.out.println("exception");
         e.printStackTrace();
     } finally {
-        System.out.println("finally"));
+        System.out.println("finally");
     closeConnection();
     }
 
