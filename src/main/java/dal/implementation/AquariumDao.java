@@ -91,14 +91,6 @@ public Optional<List<Aquarium>> getAll() {
         // as long as there is a next result, we create employee objects and add them to
         // the list (to be returned)
 
-        int size =0;
-        if (result != null) 
-        {
-            result.last();    // moves cursor to the last row
-            size = result.getRow(); // get row id 
-        }
-
-        aqs.add(new Aquarium(size+5, 50, "ResultSize"));
         while (result.next()) {
             aqs.add(new Aquarium(10, 20, "result.next was true"));
             Aquarium aq = extractAquariumFromResultSet(result);
