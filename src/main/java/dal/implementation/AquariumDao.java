@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import Model.Aquarium;
+import model.Aquarium;
 
 public class AquariumDao extends DaoBase implements Dao<Aquarium>{
     
@@ -75,7 +75,7 @@ public class AquariumDao extends DaoBase implements Dao<Aquarium>{
 
 
 @Override
-public Optional<List<Model.Aquarium>> getAll() {
+public Optional<List<Aquarium>> getAll() {
     List<Aquarium> aqs = new ArrayList<Aquarium>();
 
     Statement stmt;
@@ -101,14 +101,14 @@ public Optional<List<Model.Aquarium>> getAll() {
 
 
 @Override
-public Optional<Model.Aquarium> getById(int id) {
+public Optional<Aquarium> getById(int id) {
     // TODO Auto-generated method stub
     return Optional.empty();
 }
 
 
 @Override
-public boolean update(Model.Aquarium t) {
+public boolean update(Aquarium t) {
     // TODO Auto-generated method stub
     return false;
 }

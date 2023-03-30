@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import Model.Employee;
+import model.Employee;
 
 /**
  * 

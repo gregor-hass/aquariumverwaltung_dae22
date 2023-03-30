@@ -1,7 +1,7 @@
 package pl.controller;
 
 import bl.AquariumLogic;
-import Model.Aquarium;
+import model.Aquarium;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;

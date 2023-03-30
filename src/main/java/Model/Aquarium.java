@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 /**
  * Aquarium model class

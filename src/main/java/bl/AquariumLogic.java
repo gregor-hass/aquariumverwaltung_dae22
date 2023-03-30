@@ -6,7 +6,7 @@ import dal.interfaces.Dao;
 import java.util.List;
 import java.util.Optional;
 
-import Model.Aquarium;
+import model.Aquarium;
 
 public class AquariumLogic {
 
