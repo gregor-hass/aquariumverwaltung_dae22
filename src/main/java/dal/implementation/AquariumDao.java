@@ -81,12 +81,13 @@ public Optional<List<Aquarium>> getAll() {
     
     aqs.add(new Aquarium(10, 20, "Test"));
 
-    Statement stmt;
+    PreparedStatement stmt;
     try {
-        System.out.println("Executing SELECT * FROM aquariums");
-        stmt = conn.createStatement();
+        stmt = conn.prepareStatement("SELECT * FROM aquariums");
+        System.out.println(stmt.toString());
+
         // 3. execute the query
-        ResultSet result = stmt.executeQuery("SELECT * FROM aquariums;");
+        ResultSet result = stmt.executeQuery();
         aqs.add(new Aquarium(result.getType(), 20, "Executed Query"));
         // 4. result set will be retrieved
         // as long as there is a next result, we create employee objects and add them to
@@ -98,11 +99,15 @@ public Optional<List<Aquarium>> getAll() {
             aqs.add(aq);
         }
     } catch (SQLException e) {
+        System.out.println("exception");
         e.printStackTrace();
     } finally {
+        System.out.println("finally"));
     closeConnection();
     }
 
+    
+    System.out.println("return");
     return Optional.ofNullable(aqs);
 }
 

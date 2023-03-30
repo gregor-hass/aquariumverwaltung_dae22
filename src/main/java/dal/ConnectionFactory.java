@@ -24,7 +24,7 @@ public class ConnectionFactory {
   private static final String USER = "postgres";
   private static final String PASS = "FGbk2LJP3hpWyuCeh0z6";
   private static final String SCHEMA = "av";
-  private static final String LOGLEVEL = "DEBUG"; // OFF, DEBUG, TRACE
+  private static final String LOGLEVEL = "TRACE"; // OFF, DEBUG, TRACE
 
   /**
    * Get a connection to database.
