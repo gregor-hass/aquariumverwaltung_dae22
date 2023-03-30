@@ -29,26 +29,24 @@ public class AquariumController {
   }
   
   /**
-   * stores a new humidity entry for a sensor
+   * stores a new aquarium
    * 
-   * @param sensorId the id of the sensor for which the humidity entry should be
-   *                 saved
-   * @param rh       the relative humidity value
    * @return a success / failure message
    */
-  @RequestMapping(value = "sensor/aquarium/{room}/{vol}", method = { RequestMethod.POST, RequestMethod.PUT })
+  @RequestMapping(value = "sensor/newAquarium/{room}/{vol}", method = { RequestMethod.POST, RequestMethod.PUT })
   @ResponseBody
   public ResponseEntity<String> addAquarium( @PathVariable("room") String roomname, @PathVariable("vol") Double volume) {
     Aquarium aq = new Aquarium(0,volume,roomname);
 
     boolean saved = new AquariumLogic().save(aq);
     if (saved) {
-      return new ResponseEntity<String>("new " + volume + "l Aquarium saved in " + roomname,
+      return new ResponseEntity<String>("new " + volume + "l Aquarium saved for " + roomname,
           HttpStatus.CREATED);
     } else {
       return new ResponseEntity<String>("new " + volume + "l Aquarium NOT saved",
           HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
+  
 }
 

@@ -80,42 +80,26 @@ public class AquariumDao extends DaoBase implements Dao<Aquarium>{
 public Optional<List<Aquarium>> getAll() {
     List<Aquarium> aqs = new ArrayList<Aquarium>();
 
-    
-    aqs.add(new Aquarium(10, 20, "Test"));
-
     PreparedStatement stmt;
     try {
         stmt = conn.prepareStatement("SELECT * FROM aquariums");
-        System.out.println(stmt.toString());
-        System.out.println(conn.getSchema());
-        
 
         // 3. execute the query
         ResultSet result = stmt.executeQuery();
-        aqs.add(new Aquarium(result.getType(), 20, "Executed Query"));
         // 4. result set will be retrieved
         // as long as there is a next result, we create employee objects and add them to
         // the list (to be returned)
         
-        System.out.println(result.next());
-        System.out.println(result.getInt("aquarium_id"));
-        
         while (result.next()) {
-            System.out.println("in while loop");
-            aqs.add(new Aquarium(50, 20, "result.next was true"));
             Aquarium aq = extractAquariumFromResultSet(result);
             aqs.add(aq);
         }
     } catch (SQLException e) {
-        System.out.println("exception");
         e.printStackTrace();
     } finally {
-        System.out.println("finally");
     closeConnection();
     }
 
-    
-    System.out.println("return");
     return Optional.ofNullable(aqs);
 }
 
