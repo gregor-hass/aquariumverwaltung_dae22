@@ -6,10 +6,14 @@
 
 # Variables 
 * Definition with @ and usage with {{...}}
-@url = https://raindrops-ws2022-production-63fb.up.railway.app/
+@url = https://aquariumverwaltungdae22-production.up.railway.app/
 
 # Info - Controller
 GET {{url}}/info HTTP/1.1
+
+# Aquarium Controller
+## Get All Aquariums
+GET {{url}}/aquarium HTTP/1.1 
 
 # Sensor Controller
 ## Add new sensor
