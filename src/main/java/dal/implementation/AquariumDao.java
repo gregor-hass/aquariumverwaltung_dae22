@@ -78,6 +78,9 @@ public class AquariumDao extends DaoBase implements Dao<Aquarium>{
 public Optional<List<Aquarium>> getAll() {
     List<Aquarium> aqs = new ArrayList<Aquarium>();
 
+    
+    aqs.add(new Aquarium(10, 20, "Test"));
+
     Statement stmt;
     try {
       stmt = conn.createStatement();
