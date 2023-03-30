@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,4 +27,28 @@ public class AquariumController {
     List<Aquarium> aquariums = new AquariumLogic().getAllAquariums();
     return new ResponseEntity<List<Aquarium>>(aquariums, HttpStatus.OK);
   }
+  
+  /**
+   * stores a new humidity entry for a sensor
+   * 
+   * @param sensorId the id of the sensor for which the humidity entry should be
+   *                 saved
+   * @param rh       the relative humidity value
+   * @return a success / failure message
+   */
+  @RequestMapping(value = "sensor/aquarium/{vol}/{room}", method = { RequestMethod.POST, RequestMethod.PUT })
+  @ResponseBody
+  public ResponseEntity<String> addAquarium(@PathVariable("vol") Double volume, @PathVariable("room") String roomname) {
+    Aquarium aq = new Aquarium(0,volume,roomname);
+
+    boolean saved = new AquariumLogic().save(aq);
+    if (saved) {
+      return new ResponseEntity<String>("new " + volume + "l Aquarium saved in " + roomname,
+          HttpStatus.CREATED);
+    } else {
+      return new ResponseEntity<String>("new " + volume + "l Aquarium NOT saved",
+          HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+}
 }
