@@ -49,7 +49,7 @@ public class AquariumDao extends DaoBase implements Dao<Aquarium>{
     PreparedStatement insertStatement;
     try {
       insertStatement = conn
-          .prepareStatement("INSERT INTO aquariumgs (aquarium_vol, aquarium_room) "
+          .prepareStatement("INSERT INTO aquariums (aquarium_vol, aquarium_room) "
               + "VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS
           // see https://www.arundhaj.com/blog/getGeneratedKeys-with-postgresql.html
           );
@@ -86,10 +86,12 @@ public Optional<List<Aquarium>> getAll() {
       stmt = conn.createStatement();
       // 3. execute the query
       ResultSet result = stmt.executeQuery("SELECT * FROM aquariums");
+      aqs.add(new Aquarium(10, 20, "Executed Query"));
       // 4. result set will be retrieved
       // as long as there is a next result, we create employee objects and add them to
       // the list (to be returned)
       while (result.next()) {
+        aqs.add(new Aquarium(10, 20, "result.next was true"));
         Aquarium aq = extractAquariumFromResultSet(result);
         aqs.add(aq);
       }
