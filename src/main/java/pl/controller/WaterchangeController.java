@@ -32,9 +32,9 @@ public class WaterchangeController {
    * @return adds new Waterchange to aquarium
    *          this
    */
-  @RequestMapping(value = "/newWaterchange/{aquarium_id}/{amount}", produces = { "application/json" }, method = { RequestMethod.POST, RequestMethod.PUT })
+  @RequestMapping(value = "/newWaterchange/{aquarium_id}/{amount}",method = { RequestMethod.POST, RequestMethod.PUT })
   @ResponseBody
-  public ResponseEntity<String> newWaterchange(@PathVariable("aquarium_id") Integer aquarium_id, @PathVariable("amount") Double amount) {
+  public ResponseEntity<String> addWaterchange(@PathVariable("aquarium_id") Integer aquarium_id, @PathVariable("amount") Double amount) {
     Waterchange waterchange = new Waterchange(aquarium_id, amount);
 
     boolean saved = new WaterchangeLogic().save(waterchange);
