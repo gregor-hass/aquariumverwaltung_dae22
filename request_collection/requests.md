@@ -15,50 +15,48 @@ GET {{url}}/info HTTP/1.1
 ## Get All Aquariums
 GET {{url}}/aquarium HTTP/1.1 
 
-WRONG SCHEMA
-null
-exception
-Morg.postgresql.util.PSQLException: ERROR: relation "aquariums" does not exist
 
-Rigth database and SCHEMA
-av
-true
-1
+# Animal Controller
 
-# Sensor Controller
-## Add new sensor
-POST {{url}}/sensor 
-content-type: application/json
+## Get All Animals
+GET {{url}}/animals HTTP/1.1 
 
-{
-    "friendly_name": "Sensor #2 (VS Code, V5.0.0.2)",
-    "employee_id": "100"
-}
+answer:
+[
+  {
+    "animalId": 1,
+    "genus": "Betta",
+    "species": "Imbellis",
+    "morph": "wild"
+  },
+  ...
+  {
+    "animalId": 9,
+    "genus": "TestGenusREST2",
+    "species": "TestSpeciesREST2",
+    "morph": "TestMorphREST2"
+  },
+  {
+    "animalId": 10,
+    "genus": "TestGenus3",
+    "species": "sp.",
+    "morph": "TestMorph3"
+  }
+]
+## Add new animals
+POST {{url}}/newAnimal/TestGenusREST1/TestSpeciesREST1 HTTP/1.1
 
-# Get all sensors
-GET {{url}}/sensor HTTP/1.1 
-* info: at first, the GET method on /sensor is not available - we need to implement this
+answer: 
+new Animal 8 (TestGenusREST1 TestSpeciesREST1) saved
 
-# Humidity 
-## Get Humidity by ID
-GET {{url}}/humidity/1 HTTP/1.1
 
-## Delete Humidity by ID
-SQL-Injektion!!!! Die "id" wird als string übergeben und ausgeführt
+POST {{url}}/newAnimal/TestGenusREST2/TestSpeciesREST2/TestMorphREST2 HTTP/1.1
 
-DELETE {{url}}/humidity/1 OR 'x'='x' HTTP/1.1
-DELETE {{url}}/humidity/1 HTTP/1.1
+answer: 
+new Animal 9 (TestGenusREST2 TestSpeciesREST2 TestMorphREST2) saved
 
-# Get Humidity values for a sensor by the sensor ID
-GET {{url}}/sensor/2/humidity HTTP/1.1 
 
-## Post Humidity for Sensor
-POST {{url}}/sensor/2/humidity/1.18
+POST {{url}}/newAnimalMorph/TestGenus3/TestMorph3 HTTP/1.1
 
-## Get All Humidities
-GET {{url}}/humidity HTTP/1.1
-
-# Employees Controller
-## Get All Employees
-GET {{url}}/employee HTTP/1.1
-
+answer: 
+new Animal 10 (TestGenus3 sp. TestMorph3) saved
