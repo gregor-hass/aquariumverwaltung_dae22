@@ -12,11 +12,51 @@
 GET {{url}}/info HTTP/1.1
 
 # Aquarium Controller
+
+GET {{url}}/newAquarium/testroom/56 HTTP/1.1 
+
+answer: 
+new 56.0l Aquarium saved for testroom
 ## Get All Aquariums
 GET {{url}}/aquarium HTTP/1.1 
 
+answer: 
+[
+  {
+    "aquariumId": 1,
+    "volume": 60,
+    "room": "Wohnzimmer"
+  },
+  ...
+  {
+    "aquariumId": 5,
+    "volume": 56,
+    "room": "testroom"
+  }
+]
+
 
 # Animal Controller
+
+## Add new animals
+all 3 ways to add an animal:
+
+POST {{url}}/newAnimal/TestGenusREST1/TestSpeciesREST1 HTTP/1.1
+
+answer: 
+new Animal 8 (TestGenusREST1 TestSpeciesREST1) saved
+
+---------------
+POST {{url}}/newAnimal/TestGenusREST2/TestSpeciesREST2/TestMorphREST2 HTTP/1.1
+
+answer: 
+new Animal 9 (TestGenusREST2 TestSpeciesREST2 TestMorphREST2) saved
+
+---------------
+POST {{url}}/newAnimalMorph/TestGenus3/TestMorph3 HTTP/1.1
+
+answer: 
+new Animal 10 (TestGenus3 sp. TestMorph3) saved
 
 ## Get All Animals
 GET {{url}}/animals HTTP/1.1 
@@ -43,20 +83,27 @@ answer:
     "morph": "TestMorph3"
   }
 ]
-## Add new animals
-POST {{url}}/newAnimal/TestGenusREST1/TestSpeciesREST1 HTTP/1.1
+# Waterchange Controller
+## Add new waterchanges
+
+POST {{url}}/newWaterchange/1/50 HTTP/1.1
 
 answer: 
-new Animal 8 (TestGenusREST1 TestSpeciesREST1) saved
+new Waterchange at 2023-03-31 08:39:29.312605 (Aquarium 1: 50.0l ) saved
 
-
-POST {{url}}/newAnimal/TestGenusREST2/TestSpeciesREST2/TestMorphREST2 HTTP/1.1
-
-answer: 
-new Animal 9 (TestGenusREST2 TestSpeciesREST2 TestMorphREST2) saved
-
-
-POST {{url}}/newAnimalMorph/TestGenus3/TestMorph3 HTTP/1.1
+## Get Waterchanges for aquarium_id
+POST {{url}}/waterchanges/1 HTTP/1.1
 
 answer: 
-new Animal 10 (TestGenus3 sp. TestMorph3) saved
+[
+  {
+    "aquarium_id": 1,
+    "time": "2023-03-30T14:29:07.713+0000",
+    "amount": 20
+  },
+  {
+    "aquarium_id": 1,
+    "time": "2023-03-31T08:39:29.312+0000",
+    "amount": 50
+  }
+]
