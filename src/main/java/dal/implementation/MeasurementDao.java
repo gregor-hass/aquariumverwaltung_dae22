@@ -75,7 +75,7 @@ public class MeasurementDao extends DaoBase implements Dao<Measurement>{
         PreparedStatement insertStatement;
         try {
           insertStatement = conn
-              .prepareStatement("INSERT INTO waterchanges (aquarium_id,val,amount) "
+              .prepareStatement("INSERT INTO measurements (aquarium_id,val,amount) "
                   + "VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS
               // see https://www.arundhaj.com/blog/getGeneratedKeys-with-postgresql.html
               );

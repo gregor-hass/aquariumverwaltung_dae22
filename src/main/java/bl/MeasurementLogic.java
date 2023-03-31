@@ -25,10 +25,10 @@ public class MeasurementLogic {
     }
   }
   
-  public boolean save(Measurement measurementList) {
+  public boolean save(Measurement measurement) {
     boolean saved = false;
     try {
-      saved = dao.save(measurementList);
+      saved = dao.save(measurement);
     } catch (Exception e) {
       e.printStackTrace();
     }
