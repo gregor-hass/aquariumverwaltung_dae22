@@ -18,7 +18,6 @@ public class AnimalController {
   /**
    * 
    * @return a list of all Animal
-   * @apiNote TODO: improvement - only authenticated users might be able to use
    *          this
    */
   @RequestMapping(value = "/animals", produces = { "application/json" }, method = { RequestMethod.GET })

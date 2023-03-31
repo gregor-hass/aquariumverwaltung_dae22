@@ -133,4 +133,10 @@ public class AnimalDao extends DaoBase implements Dao<Animal>{
         aq = new Animal(result.getInt("animal_id"), result.getString("genus"), result.getString("species"), result.getString("morph"));
         return aq;
     }
+
+    @Override
+    public Optional<List<Animal>> getAllByAquariumId(int id) {
+        // TODO Auto-generated method stub
+        return Optional.empty();
+    }
 }

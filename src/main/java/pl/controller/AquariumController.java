@@ -18,7 +18,6 @@ public class AquariumController {
   /**
    * 
    * @return a list of all aquariums
-   * @apiNote TODO: improvement - only authenticated users might be able to use
    *          this
    */
   @RequestMapping(value = "/aquarium", produces = { "application/json" }, method = { RequestMethod.GET })

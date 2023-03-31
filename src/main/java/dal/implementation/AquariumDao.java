@@ -62,7 +62,6 @@ public class AquariumDao extends DaoBase implements Dao<Aquarium>{
         ResultSet generatedKey = insertStatement.getGeneratedKeys();
         if (generatedKey.next()) {
             aq.setAquariumId(generatedKey.getInt(1));
-            System.out.println(aq.getAquariumId());
         }
       }
     } catch (SQLException e) {
@@ -121,4 +120,11 @@ private Aquarium extractAquariumFromResultSet(ResultSet result) throws SQLExcept
     aq = new Aquarium(result.getInt("aquarium_id"), result.getDouble("aquarium_vol"), result.getString("aquarium_room"));
     return aq;
   }
+
+
+@Override
+public Optional<List<Aquarium>> getAllByAquariumId(int id) {
+    // TODO Auto-generated method stub
+    return Optional.empty();
+}
 }

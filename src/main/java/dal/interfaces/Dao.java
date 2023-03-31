@@ -14,6 +14,8 @@ public interface Dao<T> {
 
   Optional<List<T>> getAll();
 
+  Optional<List<T>> getAllByAquariumId(int id);
+
   Optional<T> getById(int id);
 
   boolean save(T t);
