@@ -107,3 +107,38 @@ answer:
     "amount": 50
   }
 ]
+
+
+# Measurement Controller
+## Add new Measurement
+
+POST {{url}}/newMeasurement/1/NO2/0.3 HTTP/1.1
+
+answer: 
+new Measurement at 2023-03-31 09:13:45.960769 (Aquarium 1: 0.3 NO2 ) saved
+
+## Get Measurement for aquarium_id
+POST {{url}}/measurements/1 HTTP/1.1
+
+answer: 
+[
+  {
+    "aquarium_id": 1,
+    "time": "2023-03-30T14:29:07.713+0000",
+    "amount": 0.2,
+    "type": "PO4"
+  },
+  ...
+  {
+    "aquarium_id": 1,
+    "time": "2023-03-30T14:29:07.713+0000",
+    "amount": 0.2,
+    "type": "CO2"
+  },
+  {
+    "aquarium_id": 1,
+    "time": "2023-03-31T09:13:45.960+0000",
+    "amount": 0.3,
+    "type": "NO2"
+  }
+]
