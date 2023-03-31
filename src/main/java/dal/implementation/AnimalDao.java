@@ -42,7 +42,7 @@ public class AnimalDao extends DaoBase implements Dao<Animal>{
             stmt = conn.prepareStatement("SELECT * FROM animals");
     
             ResultSet result = stmt.executeQuery();
-            
+
             while (result.next()) {
                 Animal aq = extractAnimalFromResultSet(result);
                 aqs.add(aq);
@@ -132,6 +132,5 @@ public class AnimalDao extends DaoBase implements Dao<Animal>{
         Animal aq;
         aq = new Animal(result.getInt("animal_id"), result.getString("genus"), result.getString("species"), result.getString("morph"));
         return aq;
-      }
     }
 }
