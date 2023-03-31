@@ -72,14 +72,14 @@ public class AnimalDao extends DaoBase implements Dao<Animal>{
                 if(animal.getMorph().isEmpty()){
                     insertStatement = conn
                         .prepareStatement("INSERT INTO animals (genus, species) "
-                            + "VALUES (?, sp.)", Statement.RETURN_GENERATED_KEYS
+                            + "VALUES (?, 'sp.')", Statement.RETURN_GENERATED_KEYS
                         );
                     insertStatement.setString(1, animal.getGenus());
                 }
                 else{
                     insertStatement = conn
                         .prepareStatement("INSERT INTO animals (genus, species, morph) "
-                            + "VALUES (?, sp., ?)", Statement.RETURN_GENERATED_KEYS
+                            + "VALUES (?, 'sp.', ?)", Statement.RETURN_GENERATED_KEYS
                         );
                     insertStatement.setString(1, animal.getGenus());
                     insertStatement.setString(2, animal.getMorph());
