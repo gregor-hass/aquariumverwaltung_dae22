@@ -70,7 +70,6 @@ public class AquariumDao extends DaoBase implements Dao<Aquarium>{
     } finally {
       closeConnection();
     }
-    System.out.println("added Aquarium and returning " + (i==1));
     return i == 1;
   }
 
