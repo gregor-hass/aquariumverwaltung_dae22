@@ -33,7 +33,7 @@ public class AquariumController {
    * 
    * @return a success / failure message
    */
-  @RequestMapping(value = "/snewAquarium/{room}/{vol}", method = { RequestMethod.POST, RequestMethod.PUT })
+  @RequestMapping(value = "/newAquarium/{room}/{vol}", method = { RequestMethod.POST, RequestMethod.PUT })
   @ResponseBody
   public ResponseEntity<String> addAquarium( @PathVariable("room") String roomname, @PathVariable("vol") Double volume) {
     Aquarium aq = new Aquarium(0,volume,roomname);
